@@ -1,3 +1,139 @@
+/* CSS RESET */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+  font-family: "VT323", monospace;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+html {
+  box-sizing: border-box;
+}
+* {
+  box-sizing: inherit;
+}
+a {
+  color: white;
+}
+/* END OF CSS RESET */
 .button-container {
   display: flex;
   justify-content: center;
@@ -26,7 +162,7 @@
   opacity: 1;
 }
 
-button:hover{
+button:hover {
   background-color: rgb(0, 128, 85);
   box-shadow: 0px 0px 0 rgb(41, 41, 41);
   -webkit-box-shadow: 0px 0px 0 rgb(41, 41, 41);
@@ -34,5 +170,80 @@ button:hover{
 }
 
 button:active {
-    background-color: #616161
+  background-color: #616161;
+}
+
+.grass-container {
+  background-image: url("../assets/landscape/grass1.png");
+  background-size: 30px 30px;
+  background-repeat: repeat;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.race-track {
+  position: relative;
+    margin: 12vh auto 0 auto;
+    height: 480px;
+    width: 1678px;
+    background-image: url("../assets/landscape/sand_dual.png");
+    background-size: 40px 40px;
+    background-color: rgb(240,184,68);
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    z-index: 1;
+}
+
+.race-track:before {
+  position: relative;
+  margin-top: 0px;
+  display: block;
+  content: " ";
+  background: url("../assets/landscape/fence1.png") repeat;
+  background-size: 40px 40px;
+  height: 40px;
+  top: -10px;
+  left: 0px;
+  z-index: 1;
+}
+
+.race-track:after {
+    content: ' ';
+    position: relative;
+    bottom: 0;
+    display: block;
+    background: url('../assets/landscape/fence1.png') repeat;
+    background-size: 40px 40px;
+    height: 40px;
+    top:5px;
+    left:0px;
+}
+
+.horse {
+  position: relative;
+    width: 180px;
+    left: 0px;
+    z-index: 1;
+    padding-right: 60px;
+}
+
+.bet-button {
+  margin: 0;
+  font-size: 0.6em;
+  padding: 7px 3px 5px 10px
+}
+
+.horse-container {
+  width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: 'VT323', monospace;
+    font-weight: 500;
+    font-size: 2em;
 }
