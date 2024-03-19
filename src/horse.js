@@ -1,86 +1,54 @@
-// creating images on the dom
-function newImage(url){
-    let image = document.createElement('img')
-    image.src = url
-    image.style.position = 'absolute'
-    document.body.append(image)
-    return image
+// Creating images on the DOM
+function newImage(url, x, y) {
+  let image = document.createElement("img");
+  image.src = url;
+  image.style.position = "absolute";
+  image.style.left = `${x}px`;
+  image.style.top = `${y}px`;
+  document.body.append(image);
+  return image;
 }
-// Generating Bojack
+
+// Generating Bojack with a function to start racing
 function BoJack(x, y) {
-    const element = newImage('./assets/BoJack/tile015.png')
-    element.style.zIndex = 2;
-    const startPosition = { x: 150, y: 150};
+  const runGif = "./assets/BoJack/run.gif";
+  const standImg = "./assets/BoJack/tile015.png";
+  const element = newImage(standImg, x, y);
 
-    element.style.left = `${x}px`;
-    element.style.top = `${y}px`;
+  function startRace() {
+    element.src = runGif; // Change to running gif when race starts
+    let currentPosition = x;
 
-    function changeDirection(direction) {
-        if (direction === null) {
-            element.src = `./assets/BoJack/tile015.png`
-        }
-        if (direction === 'east') {
-            element.src = `./assets/BoJack/run.gif`
-        }
-    }
-    move(element).startRace(x, y, changeDirection)
+    const interval = setInterval(() => {
+      currentPosition += 10; // Adjust the speed if need be
+      element.style.left = `${currentPosition}px`;
 
-    
-    return {
-        element: element,
-        startPosition: startPosition
-    }
+      // This stops the horse at the end of the viewport - can change to fit track
+      if (currentPosition > window.innerWidth - 100) {
+        clearInterval(interval);
+        element.src = standImg;
+      }
+    }, 50); // Adjust the interval as needed for smoother animation
+  }
+
+  return {
+    startRace: startRace,
+  };
 }
 
-// placing all horses
-let horse1 = BoJack(150, 250)
+// Placing BoJack on the track
+let horse1 = [
+    BoJack(150, 250),
+    Bullseye()
+]
 
-// creating movement
-function move(element) {
-    element.style.position = 'fixed'
+// Links start race button with the start race function
+document.addEventListener("DOMContentLoaded", () => {
+  document
+    .querySelector(".start-button")
+    .addEventListener("click", function () {
+      horse1.startRace();
 
-    function moveToCoordinates(left, bottom) {
-        element.style.left = left + 'px'
-        element.style.bottom = bottom + 'px'
-    }
-
-    function startRace(left, bottom, callback){
-        let direction = null;
-        let x = left;
-        let y = bottom;
-
-        element.style.left = x + 'px'
-        element.style.bottom = y + 'px'
-        
-        function moveAllObjects(){ 
-            if(direction === 'east'){
-                x+=1
-            }
-
-            element.style.left = x + 'px'
-            element.style.bottom = y + 'px'
-        }
-        
-        setInterval(moveAllObjects, 1)
-
-        // creating controls
-        document.addEventListener('keydown', function(e){
-            if(e.repeat) return;
-        
-            if(e.key === 'ArrowUp'){
-                direction = 'east'
-            }
-            callback(direction)
-        })
-        
-        document.addEventListener('keyup', function(e){
-            direction = 'east'
-            callback(direction)
-        })
-    }
-
-    return {
-        to: moveToCoordinates,
-        startRace: startRace
-    }
-}
+      document.querySelector(".start-button").style.display = "none";
+    });
+});
