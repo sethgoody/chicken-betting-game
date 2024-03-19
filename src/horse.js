@@ -11,8 +11,9 @@ function BoJack(x, y) {
     element.style.zIndex = 2;
     const startPosition = { x: 150, y: 150};
 
-    // move(element).kickBall(x, y, changeDirection)
-
+    element.style.left = `${x}px`;
+    element.style.top = `${y}px`;
+    
     return {
         element: element,
         startPosition: startPosition
