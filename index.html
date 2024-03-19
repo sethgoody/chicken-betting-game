@@ -1,43 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./src/main.css" />
-        <title>Horse Betting Game</title>
-    </head>
-    <body>
-        <div class="grass-container">
-            <div class="race-track">
-                <div class="horse-container">
-                    <img id="BoJack" class="horse horse-image"  src="./assets/BoJack/tile015.png" />
-                    <button class="bet-button" onclick="placeHorseBet()">BoJack</button>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="57x57" href="./assets/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="./assets/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./assets/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="./assets/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./assets/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./assets/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./assets/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./assets/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="./assets/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="./assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="./assets/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="./src/main.css"/>
+    <script src="./src/confetti.js"></script>
+    <script src="./src/smoothScroll.js"></script>
+    <script src="./src/utilities.js"></script>
+    <script src="./src/user.js"></script>
+    <script src="./src/horse.js"></script>
+    <script src="./src/app.js"></script>
+    <title>Giddyapp</title>
+</head>
+<body>
+    <div id="main">
+        <div id="grass-container">
+            <div class="race-container">
+                <div id="win-popup" class="popup">
+                    <div>
+                        YOU WON
+                        <div>
+                            <span>$</span><span id="win-amount">0</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="horse-container">
-                    <img id="Bullseye" class="horse horse-image"  src="./assets/Bullseye/tile015.png" />
-                    <button class="bet-button" onclick="placeHorseBet()">BoJack</button>
+                <div id="countdown-popup" class="popup">
+                    3
                 </div>
-                <div class="horse-container">
-                    <img id="Copenhagen" class="horse horse-image"  src="./assets/Copenhagen/tile015.png" />
-                    <button class="bet-button" onclick="placeHorseBet()">BoJack</button>
+                <div id="raceway">
+                    <div class="horse-container">
+                        <img id="Pegasus" class="horse" class="horse-image" src="./assets/Pegasus/tile015.png" />
+                        <button class="bet-button" onclick="placeHorseBet('Pegasus')">Pegasus</button>
+                    </div>
+                    <div class="horse-container">
+                        <img id="BoJack" class="horse" src="./assets/BoJack/tile015.png" />
+                        <button class="bet-button" onclick="placeHorseBet('BoJack')">BoJack</button>
+                    </div>
+                    <div class="horse-container">
+                        <img id="Bullseye" class="horse" class="horse-image" src="./assets/Bullseye/tile015.png" />
+                        <button class="bet-button" onclick="placeHorseBet('Bullseye')">Bullseye</button>
+                    </div>
+                    <div class="horse-container">
+                        <img id="Rusty" class="horse" class="horse-image" src="./assets/Rusty/tile015.png" />
+                        <button class="bet-button" onclick="placeHorseBet('Rusty')">Rusty</button>
+                    </div>
+                    <div class="horse-container">
+                        <img id="Copenhagen" class="horse" class="horse-image" src="./assets/Copenhagen/tile015.png" />
+                        <button class="bet-button" onclick="placeHorseBet('Copenhagen')">Copenhagen</button>
+                    </div>
+                    <div id="finish-line"></div>
                 </div>
-                <div class="horse-container">
-                    <img id="Pegasus" class="horse horse-image"  src="./assets/Pegasus/tile015.png" />
-                    <button class="bet-button" onclick="placeHorseBet()">BoJack</button>
-                </div>
-                <div class="horse-container">
-                    <img id="Rusty" class="horse horse-image"  src="./assets/Rusty/tile015.png" />
-                    <button class="bet-button" onclick="placeHorseBet()">BoJack</button>
-                </div>
-            <div class="button-container">
-                <button class="start-button">Start Race!</button>
             </div>
         </div>
+        <div class="user-container">
+            <div class="flex-container">
+                <div id="multi-container">
+                    <div id="dollar-container">
+                        <button class="green-button dollar-button" id="5-bet" onclick="placeDollarBet(5)">5</button>
+                        <button class="green-button dollar-button" id="10-bet" onclick="placeDollarBet(10)">10</button>
+                        <button class="green-button dollar-button" id="20-bet" onclick="placeDollarBet(20)">20</button>
+                        <button class="green-button dollar-button" id="50-bet" onclick="placeDollarBet(50)">50</button>
+                        <button class="green-button dollar-button" id="100-bet" onclick="placeDollarBet(100)">100</button>
+                        <button class="green-button dollar-button" id="200-bet" onclick="placeDollarBet(200)">200</button>
+                        <button class="green-button dollar-button" id="500-bet" onclick="placeDollarBet(500)">500</button>
+                        <button class="green-button dollar-button" id="all-in-bet" onclick="placeAllMoneyBet()">All In</button>
+                    </div>
+                    <button id="start-button" onclick="startRace()">Start Race!</button>
+                    <button class="green-button" id="reset-button" onclick="resetRace()">Play Again?</button>
+                </div>
+                <div id="user-display-container">
+                    <div id="info-container">
+                        <div id="user-bet" class="user-info">
+                            <span id="user-bet-text">Make a bet!</span>
+                        </div>
+                        <div id="user-funds-container" class="user-info">
+                            Your funds: $<div id="user-funds-text">0</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="lower-content" class="flex-container">
+                <button class="green-button" onclick="resetUser()">Reset User</button>
+                <button id="tutorial-button" class="green-button" onclick="showTutorial()">Tutorial</button>
+                <button class="green-button" onclick="showAbout()">About</button>
+                <button class="green-button" id="mute-button" onclick="toggleMute()">Mute</button>
+            </div>
+            <div id="about">
+                <button id="about-button" class="small-button" onclick="hideAbout()">x</button>
+                <h1>Bet money. Race horses. WIN!!!</h1>
+                <footer>Designed and developed by <a href="https://www.michaelkerr.tech" target="_blank">Michael Kerr</a>. Special thanks to <a href="https://github.com/CoderZ90/confetti/blob/main/confetti.js" target="_blank">CoderZ90</a>, <a href="https://jamiebrownhill.itch.io/solaria-demo" target="_blank">jamiebrownhill</a>, <a href="https://ninjikin.itch.io/grass" target="_blank">ninjikin</a>, and <a href="https://opengameart.org/content/lpc-horse" target="_blank">bluecarrot16</a>.</footer>
+            </div>
         </div>
-        <script src="./src/confetti.js"></script>
-        <script src="./src/smoothScroll.js"></script>
-        <script src="./src/app.js"></script>
-        <script src="./src/horse.js"></script>
-        <script src="./src/landscape.js"></script>
-    </body>
+        <button id="menu-button" class="small-button" onclick="toggleMenu()">▲</button>
+    </div>
+</body>
 </html>

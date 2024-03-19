@@ -1,191 +1,358 @@
-/* CSS RESET */
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-  box-sizing: border-box;
-  font-family: "VT323", monospace;
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+margin: 0;
+padding: 0;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline;
+box-sizing: border-box;
+font-family: 'VT323', monospace;
 }
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+display: block;
 }
 body {
-  line-height: 1;
+line-height: 1;
 }
-ol,
-ul {
-  list-style: none;
+ol, ul {
+list-style: none;
 }
-blockquote,
-q {
-  quotes: none;
+blockquote, q {
+quotes: none;
 }
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: "";
-  content: none;
+blockquote:before, blockquote:after,
+q:before, q:after {
+content: '';
+content: none;
 }
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+border-collapse: collapse;
+border-spacing: 0;
 }
 html {
-  box-sizing: border-box;
+box-sizing:border-box
 }
 * {
-  box-sizing: inherit;
+box-sizing:inherit;
 }
 a {
-  color: white;
-}
-/* END OF CSS RESET */
-.button-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+    color: white;
 }
 
-.start-button {
-  color: white;
-  background-color: rgb(0, 128, 85);
-  border: 3px solid rgb(29, 29, 29);
-  text-decoration: none;
-  text-shadow: -1px -1px 1px #616161;
-  position: relative;
-  padding: 15px 30px;
-  box-shadow: 5px 5px 0 rgb(41, 41, 41);
-  -webkit-box-shadow: 5px 5px 0 rgb(41, 41, 41);
-  -moz-box-shadow: 5px 5px 0 rgb(41, 41, 41);
-  transition: all 0.3s ease;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  margin: 0 auto;
-  font-family: "VT323", monospace;
-  font-size: 2.5em;
-  cursor: pointer;
-  opacity: 1;
+/* END CSS RESET */
+
+/* ANIMATIONS */
+
+@keyframes colorFlash {  
+    0% { 
+        color: white;
+        background-color: rgb(0, 15, 223); 
+    }
+    50% { 
+        color: white;
+        background-color: rgb(0, 15, 223); 
+    }
+    51% { 
+        color: black;
+        background-color: rgb(255, 238, 0); 
+    }
+    100% { 
+        color: black;
+        background-color: rgb(255, 238, 0); 
+    }
 }
 
-button:hover {
-  background-color: rgb(0, 128, 85);
-  box-shadow: 0px 0px 0 rgb(41, 41, 41);
-  -webkit-box-shadow: 0px 0px 0 rgb(41, 41, 41);
-  -moz-box-shadow: 0px 0px 0 rgb(41, 41, 41);
+@-webkit-keyframes colorFlash {  
+    0% { 
+        color: white;
+        background-color: rgb(0, 15, 223); 
+    }
+    50% { 
+        color: white;
+        background-color: rgb(0, 15, 223); 
+    }
+    51% { 
+        color: black;
+        background-color: rgb(255, 238, 0); 
+    }
+    100% { 
+        color: black;
+        background-color: rgb(255, 238, 0); 
+    }
 }
 
-button:active {
-  background-color: #616161;
+@keyframes fadeAway {  
+    0% { 
+        transform: translateY(0px);
+        color: rgb(192, 179, 0); 
+    }
+    100% { 
+        transform: translateY(-30px);
+        color: rgba(226, 211, 0, 0); 
+    }
 }
 
-.grass-container {
-  background-image: url("../assets/landscape/grass1.png");
-  background-size: 30px 30px;
-  background-repeat: repeat;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@-webkit-keyframes fadeAway {  
+    0% { 
+        transform: translateY(0px);
+        color: rgb(192, 179, 0); 
+    }
+    100% { 
+        transform: translateY(-30px);
+        color: rgba(226, 211, 0, 0); 
+    }
 }
 
-.race-track {
-  position: relative;
+@keyframes fadeIn {
+    0% { 
+        opacity: 0;
+    }
+    100% { 
+        opacity: 1;
+    }
+}
+
+@keyframes translateUp {  
+    0% { 
+        transform: translateY(0px);
+    }
+    100% { 
+        transform: translateY(-200px);
+    }
+}
+
+@-webkit-keyframes translateUp {  
+    0% { 
+        transform: translateY(0px);
+    }
+    100% { 
+        transform: translateY(-200px);
+    }
+}
+
+@keyframes translateDown {  
+    0% { 
+        transform: translateY(-200px);
+    }
+    100% { 
+        transform: translateY(0px);
+    }
+}
+
+@-webkit-keyframes translateDown {  
+    0% { 
+        transform: translateY(-200px);
+    }
+    100% { 
+        transform: translateY(0px);
+    }
+}
+
+/* MAIN STYLES */
+
+button {
+    color: white;
+    background-color: maroon;
+    border: 3px solid rgb(29, 29, 29);
+    text-decoration: none;
+    text-shadow: -1px -1px 1px #616161;
+    position: relative;
+    padding: 15px 30px;
+    box-shadow: 5px 5px 0 rgb(41, 41, 41);
+    -webkit-box-shadow: 5px 5px 0 rgb(41, 41, 41);
+    -moz-box-shadow: 5px 5px 0 rgb(41, 41, 41);
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    margin: 0 auto;
+    font-family: 'VT323', monospace;
+    font-size: 2.5em;
+    cursor: pointer;
+    opacity: 1;
+    animation: fadeIn 0.1s;
+    /* Too jarring to fade in when there's no fade out? */
+}
+
+button:hover, button:active {
+    background-color: rgb(110, 0, 0);
+    box-shadow: 0px 0px 0 rgb(41, 41, 41);
+    -webkit-box-shadow: 0px 0px 0 rgb(41, 41, 41);
+    -moz-box-shadow: 0px 0px 0 rgb(41, 41, 41);
+}
+
+button:disabled {
+    background-color: #616161;
+}
+
+#main {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+
+    overflow-y: hidden;
+    overflow-x: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+#grass-container {
+    position: absolute;
+    background-image: url("../assets/landscape/grass1.png");
+    background-color: rgb(99,171,63);
+    background-size: 30px 30px;
+    background-repeat: repeat;
+    width: 100vw;
+    height: 100vh;
+}
+
+.tooltip {
+    position: absolute;
+    background: rgb(236, 236, 236);
+    text-align: center;
+    width: 180px;
+    padding: 20px 30px;
+    border: 3px solid rgb(41, 41, 41);
+    top: -100%;
+    left: 18%;
+    z-index: 5;
+    font-size: 19px;
+    box-shadow: -5px 5px 0 rgb(41, 41, 41);
+    -webkit-box-shadow: -5px 5px 0 rgb(41, 41, 41);
+    -moz-box-shadow: -5px 5px 0 rgb(41, 41, 41);
+}
+
+.arrow-down::after {
+    content: '';
+    position: absolute;
+    bottom: -16px;
+    left: 40%;
+    width: 0; 
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid rgb(0, 0, 0);
+}
+
+.arrow-up {
+    top: -8%;
+}
+
+.display-tooltip {
+    top: -130%;
+    left: 30%
+}
+
+.start-tooltip {
+    top: -40%;
+}
+
+.arrow-up::after {
+    content: '';
+    position: absolute;
+    top: -18px;
+    left: 42%;
+    width: 0; 
+    height: 0; 
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid rgb(0, 0, 0);
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+#main::-webkit-scrollbar {
+    display: none;
+}
+
+#win-message-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#win-message {
+    display: none;
+    position: fixed;
+    width: 70%;
+    height: 100px;
+    z-index: 2;
+    top: 0;
+    color: white;
+    font-size: calc(2vh + 2vw);
+    background-image: url('../assets/landscape/sand2.png');
+    background-repeat: repeat;
+    background-size: 30px;
+    margin: 15px auto;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    vertical-align: middle;
+    text-shadow: -2px -2px 0 rgb(29, 29, 29), 2px -2px 0 rgb(29, 29, 29), -2px 2px 0 rgb(29, 29, 29), 2px 2px 0 rgb(29, 29, 29);
+    line-height: 100px;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    color: white;
+    top: 39%;
+    left: 50%;
+    margin-top: -10vh;  /* Negative half of height - CENTERS */
+    margin-left: -150px;  /* Negative half of width - CENTERS */
+    z-index: 3;
+    text-align: center;
+    vertical-align: middle;
+    width: 300px;
+    height: 20vh;
+    padding-top: 8px;
+}
+
+#countdown-popup {
+    top: 30%;
+    color: darkgreen;
+    font-size: 200px;
+    justify-content: center;
+    align-items: flex-start;
+    text-shadow: -3px -3px 0 rgb(29, 29, 29), 3px -3px 0 rgb(29, 29, 29), -3px 3px 0 rgb(29, 29, 29), 3px 3px 0 rgb(29, 29, 29);
+}
+
+#win-popup {
+    background-color: rgb(0, 15, 223);
+    animation: colorFlash 0.4s infinite;
+    -webkit-animation: colorFlash 0.4s infinite;
+    border: 5px solid rgb(29, 29, 29);
+}
+
+#win-popup > div {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2.7em;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#win-popup > div span {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8em;
+}
+
+#raceway {
+    position: relative;
     margin: 12vh auto 0 auto;
     height: 480px;
     width: 1678px;
@@ -198,20 +365,20 @@ button:active {
     z-index: 1;
 }
 
-.race-track:before {
-  position: relative;
-  margin-top: 0px;
-  display: block;
-  content: " ";
-  background: url("../assets/landscape/fence1.png") repeat;
-  background-size: 40px 40px;
-  height: 40px;
-  top: -10px;
-  left: 0px;
-  z-index: 1;
+#raceway:before {
+    position: relative;
+    margin-top: 0px;
+    display: block;
+    content: ' ';
+    background: url('../assets/landscape/fence1.png') repeat;
+    background-size: 40px 40px;
+    height: 40px;
+    top:-10px;
+    left:0px;
+    z-index: 1;
 }
 
-.race-track:after {
+#raceway:after {
     content: ' ';
     position: relative;
     bottom: 0;
@@ -223,22 +390,25 @@ button:active {
     left:0px;
 }
 
-.horse {
-  position: relative;
-    width: 180px;
-    left: 0px;
-    z-index: 1;
-    padding-right: 60px;
+#raceway > div {
+    border-top: 3px rgba(149, 32, 32, 0.109) solid;
 }
 
-.bet-button {
-  margin: 0;
-  font-size: 0.6em;
-  padding: 7px 3px 5px 10px
+#raceway > div:last-of-type {
+    border-bottom: 3px rgba(149, 32, 32, 0.109)solid;
+}
+
+#finish-line {
+    transform: 90deg;
+    width: 5px;
+    height: 100%;
+    background-color: rgba(146, 0, 0, 0.787);
+    position: absolute;
+    right: 40px;
 }
 
 .horse-container {
-  width: 100%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -246,4 +416,429 @@ button:active {
     font-family: 'VT323', monospace;
     font-weight: 500;
     font-size: 2em;
+}
+
+.bet-button {
+    background-color: rgb(185, 0, 0);
+    margin: 0;
+    font-size: 0.6em;
+    font-family: 'Press Start 2P', cursive;
+    box-shadow: 3px 3px 0 rgb(41, 41, 41);
+    padding: 7px 3px 5px 10px;
+    display: none;
+}
+
+.bet-button:active, .bet-button:hover {
+    background-color: rgb(156, 0, 0);
+}
+
+.horse {
+    position: relative;
+    width: 180px;
+    left: 0px;
+    z-index: 1;
+    padding-right: 60px;
+}
+
+.user-container {
+    height: 440px;
+    width: 100vw;
+    background-image: url("../assets/user/tile.png");
+    background-color: rgb(183,96,87);
+    display: block;
+    position: fixed;
+    bottom: -200px;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    transform: translateY(0px);
+    z-index: 4;
+}
+
+.expanded {
+    animation: translateUp 0.8s ease;
+    transform: translateY(-200px);
+}
+
+.retracted {
+    animation: translateDown 0.8s ease;
+    transform: translateY(0px);
+}
+
+#lower-content {
+    flex-direction: row;
+    margin-top: 40px;
+}
+
+#lower-content .green-button {
+    width: 300px;
+}
+
+#user-display-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0px 20px;
+    margin: 0 0 5px 0;
+}
+
+.flex-container {
+    height: 220px;
+    width: 100%;
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#info-container {
+    margin-right: 20px;
+}
+
+#reset-button {
+    display: none;
+}
+
+#start-button {
+    display: none;
+}
+
+.green-button {
+    background-color: darkgreen;
+}
+
+.green-button:hover {
+    background-color: rgb(0, 73, 0);
+}
+
+.green-button:disabled {
+    background-color: #616161;
+}
+
+.small-button {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    padding: 2px 10px;
+    font-size: 0.9em;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    background-color: #616161a2;
+    border: 2px solid rgba(29, 29, 29, 0.459);
+    box-shadow: 2px 2px 0 rgb(41, 41, 41);
+    -webkit-box-shadow: 2px 2px 0 rgb(41, 41, 41);
+    -moz-box-shadow: 2px 2px 0 rgb(41, 41, 41);
+}
+
+.small-button:hover, .small-button:active {
+    background-color: #3a3939f8;
+    box-shadow: 0px 0px 0 rgb(41, 41, 41);
+    -webkit-box-shadow: 0px 0px 0 rgb(41, 41, 41);
+    -moz-box-shadow: 0px 0px 0 rgb(41, 41, 41);
+}
+
+.user-info {
+    width: 400px;
+    height: 50px;
+    border: 3px solid rgb(49, 49, 49);
+    background-color: rgb(236, 236, 236);
+    font-size: 2em;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 15px;
+    margin-bottom: 5px;
+}
+
+#user-funds-text {
+    position: relative;
+}
+
+.damage-text {
+    position: absolute;
+    top: -20px;
+    left: -18px;
+    z-index: 3;
+    color: rgba(0, 0, 0, 0);
+    animation: fadeAway 0.7s ease;
+    font-size: 1.1em;
+}
+
+#multi-container {
+    position: relative;
+    margin: 20px;
+    width: 270px;
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+#dollar-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.dollar-button {
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+    width: 120px;
+    height: 63px;
+    background: linear-gradient(0deg, rgba(248, 248, 248, 0), rgba(255, 255, 255, 0)),url('../assets/user/dollar_bill.jpg');
+    background-color: rgb(203,217,193);
+    background-size: 114px;
+    padding: 0 2px 5px 0;
+}
+
+.dollar-button:hover {
+    background: linear-gradient(0deg, rgba(59, 59, 59, 0.13), rgba(59, 59, 59, 0.13)),url('../assets/user/dollar_bill.jpg');
+    background-size: 114px;
+    transition: all 0.3s ease;
+    box-shadow: 5px 5px 0 rgb(41, 41, 41);
+    -webkit-box-shadow: 5px 5px 0 rgb(41, 41, 41);
+    -moz-box-shadow: 5px 5px 0 rgb(41, 41, 41);
+}
+
+.dollar-button:active {
+    background: linear-gradient(0deg, rgba(59, 59, 59, 0.404), rgba(59, 59, 59, 0.404)),url('../assets/user/dollar_bill.jpg');
+    background-size: 114px;
+    transition: all 0.2s ease;
+    box-shadow: 0px 0px 0 rgb(41, 41, 41);
+    -webkit-box-shadow: 0px 0px 0 rgb(41, 41, 41);
+    -moz-box-shadow: 0px 0px 0 rgb(41, 41, 41);
+}
+
+
+#about-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 5px 10px;
+    background-color: #757575a2;
+}
+
+#about-button:hover, #about-button:active {
+    background-color: #3a3939f8;
+}
+
+#about {
+    position: relative;
+    width: 90%;
+    height: 80%;
+    display: none;
+    color: white;
+    background-color: #3e171796;
+    border: 3px solid rgb(51, 51, 51);
+    flex-direction: column;
+    justify-content: center;
+    font-size: 30px;
+    text-align: center;
+    padding: 20px 15px;
+    margin: auto;
+}
+
+#about h1 {
+    font-size: 40px;
+    margin: 20px;
+}
+
+footer {
+    margin-bottom: 20px;
+}
+
+/* RESPONSIVE STYLING */
+@media only screen and (max-width: 1800px) {
+    #raceway {
+        margin: 12vh 50px 0 50px;
+    }
+
+    #grass-container {
+        width: 1800px;
+    }
+}
+@media only screen and (max-width: 1250px) {
+    #lower-content {
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 0px;
+        margin-bottom: 18px;
+    }
+
+    #lower-content .green-button {
+        width: 180px;
+        padding: 7px 20px;
+        margin: 8px auto;
+        font-size: 2em;
+    }
+}
+
+@media only screen and (max-width: 740px) {
+    button {
+        padding: 7px 20px;
+        margin: 8px auto;
+        font-size: 2em;
+    }
+
+    #win-message {
+        margin: 0;
+        font-size: calc(1.5vh + 1.5vw);
+    }
+
+    #raceway {
+        margin: 9vh 100px 0 30px;
+        height: 480px;
+    }
+
+    .user-container {
+        height: 455px;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .flex-container {
+        margin-top: 10px;
+        height: 235px;
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+    }
+
+    #lower-content {
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 0px;
+        margin-bottom: 18px;
+    }
+
+    #lower-content .green-button {
+        width: 180px;
+    }
+
+    #user-display-container {
+        margin: 10px auto 0 auto;
+        flex-direction: column;
+    }
+
+    #info-container {
+        margin-right: 0px;
+    }
+
+    .user-info {
+        width: 90vw;
+        height: 40px;
+        font-size: 1.6em;
+        justify-content: center;
+        padding: 0;
+        margin-bottom: 0px;
+    }
+
+    .damage-text {
+        left: -15px;
+    }
+
+    #multi-container {
+        height: 120px;
+        margin: 8px auto 10px auto;
+    }
+
+    .green-button {
+        margin-bottom: 3px;
+    }
+
+    .dollar-button {
+        font-size: 1.8em;
+        width: 96px;
+        height: 52px;
+        background-size: 90px;
+        padding: 2px 2px 9px 0;
+    }
+    
+    .dollar-button:hover {
+        transition: all 0.3s ease;
+        background-size: 90px;
+    }
+}
+
+@media only screen and (max-height: 890px) {
+    #raceway {
+        margin: 0 50px 0 50px;
+    }
+
+    #grass-container {
+        padding-top: 10vh;
+    }
+}
+
+@media only screen and (max-height: 800px) {
+    #raceway {
+        height: 350px;
+    }
+
+    #grass-container {
+        padding-top: 5vh;
+    }
+
+    .horse {
+        width: 153px;
+    }
+    .bet-button {
+        font-size: 0.3em;
+    }
+    
+    #raceway:before {
+        background-size: 20px 20px;
+        top:-4px;
+    }
+    
+    #raceway:after {
+        background-size: 20px 20px;
+    }
+
+    #finish-line {
+        width: 3px;
+        right: 60px;
+    }
+    
+    #win-popup {
+        margin-top: -20vh;
+        height: 30vh;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    #about {
+        font-size: 20px;
+    }
+    
+    #about h1 {
+        font-size: 30px;
+    }
+
+    #lower-content .green-button {
+        padding: 5px 2px;
+        width: 125px;
+        font-size: 1.4em;
+    }
+
+    #user-display-container {
+        font-size: 12px;
+    }
+
+    .bet-button {
+        padding: 5px 4px;
+        font-size: 7px;
+    }
 }
