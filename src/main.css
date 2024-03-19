@@ -174,76 +174,73 @@ button:active {
 }
 
 .grass-container {
+  position: absolute;
   background-image: url("../assets/landscape/grass1.png");
+  background-color: rgb(99, 171, 63);
   background-size: 30px 30px;
   background-repeat: repeat;
-  width: 100vw;
+  min-width: 100vw;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .race-track {
   position: relative;
-    margin: 12vh auto 0 auto;
-    height: 480px;
-    width: 1678px;
-    background-image: url("../assets/landscape/sand_dual.png");
-    background-size: 40px 40px;
-    background-color: rgb(240,184,68);
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    z-index: 1;
-}
-
-.race-track:before {
-  position: relative;
-  margin-top: 0px;
-  display: block;
-  content: " ";
-  background: url("../assets/landscape/fence1.png") repeat;
+  margin: 12vh auto 0 auto;
+  height: 480px;
+  width: 1678px;
+  background-image: url("../assets/landscape/sand_dual.png");
   background-size: 40px 40px;
-  height: 40px;
-  top: -10px;
-  left: 0px;
+  background-color: rgb(240, 184, 68);
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
   z-index: 1;
 }
 
+.race-track:before,
 .race-track:after {
-    content: ' ';
-    position: relative;
-    bottom: 0;
-    display: block;
-    background: url('../assets/landscape/fence1.png') repeat;
-    background-size: 40px 40px;
-    height: 40px;
-    top:5px;
-    left:0px;
+  content: " ";
+  position: absolute;
+  background: url("../assets/landscape/fence1.png") repeat-x;
+  background-size: 40px 40px;
+  height: 40px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.race-track:before {
+  top: -30px; /* Position it at the top of the track */
+}
+
+.race-track:after {
+  bottom: -10px; /* Position it at the bottom of the track */
 }
 
 .horse {
   position: relative;
-    width: 180px;
-    left: 0px;
-    z-index: 1;
-    padding-right: 60px;
+  width: 180px;
+  left: 0px;
+  z-index: 1;
+  padding-right: 60px;
 }
 
 .bet-button {
   margin: 0;
   font-size: 0.6em;
-  padding: 7px 3px 5px 10px
+  padding: 7px 3px 5px 10px;
 }
 
 .horse-container {
   width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    font-family: 'VT323', monospace;
-    font-weight: 500;
-    font-size: 2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: "VT323", monospace;
+  font-weight: 500;
+  font-size: 2em;
+}
+body {
+  overflow: hidden;
 }

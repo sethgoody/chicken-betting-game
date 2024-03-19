@@ -52,17 +52,20 @@
 //   });
 
 function startRace(horseElement) {
-  let runGif = `./assets/${horseElement.id}/run.gif`; // Use the horse's ID to get the correct run GIF
-  let standImg = `./assets/${horseElement.id}/tile015.png`; // Use the horse's ID to get the correct standing image
+  let runGif = `./assets/${horseElement.id}/run.gif`; // Correct run GIF path
+  let standImg = `./assets/${horseElement.id}/tile015.png`; // Correct standing image path
 
   horseElement.src = runGif;
   let currentPosition = 0; // Assuming the start position is 0
+  const trackWidth = document.querySelector('.race-track').offsetWidth; // Get the width of the track
+  const horseWidth = horseElement.offsetWidth; // Get the width of the horse
 
   const interval = setInterval(() => {
     currentPosition += 10; // Moves horse 10px to the right
     horseElement.style.left = `${currentPosition}px`;
 
-    if (currentPosition > window.innerWidth - 100) {
+    // Check if the current position is greater than the track width minus the horse width
+    if (currentPosition >= trackWidth - horseWidth) {
       clearInterval(interval);
       horseElement.src = standImg;
     }
@@ -71,13 +74,11 @@ function startRace(horseElement) {
 
 // Start races and hide button on click
 document.addEventListener("DOMContentLoaded", () => {
-  document
-    .querySelector(".start-button")
-    .addEventListener("click", function () {
-      const horses = document.querySelectorAll(".horse"); 
-      horses.forEach((horse) => {
-        startRace(horse);
-      });
-      this.style.display = "none";
+  document.querySelector(".start-button").addEventListener("click", function () {
+    const horses = document.querySelectorAll(".horse");
+    horses.forEach((horse) => {
+      startRace(horse);
     });
+    this.style.display = "none";
+  });
 });
